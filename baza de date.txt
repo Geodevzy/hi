@@ -7,22 +7,23 @@ struct data
 {
     int zi,luna,an;
 };
-struct pompier
+struct miner
 {
     char nume[20];
     data data_nasterii;
-    float salariu;
+    float minereuri;
 } v[30],aux;
 void citire()
 {
     n++;
     i=n;
-    cout<<"Numele pompierului: ";
+    cout<<"Numele minerului: ";
     cin>>v[i].nume;
-    cout<<"Data nasterii: zi/luna/an";
-    cin>>v[i].data_nasterii.zi>>v[i].data_nasterii.luna>>v[i].data_nasterii.an;
-    cout<<"Salariu: ";
-    cin>>v[i].salariu;
+    cout<<"Data nasterii"<<endl;
+    cout<<"zi: ";cin>>v[i].data_nasterii.zi;
+    cout<<"luna: ";cin>>v[i].data_nasterii.luna;
+    cout<<"an: ";cin>>v[i].data_nasterii.an;
+    cout<<"Minereuri minate: ";cin>>v[i].minereuri;
 }
 void afisare()
 {
@@ -31,13 +32,13 @@ void afisare()
     {
         cout<<v[i].nume;
         cout<<" "<<v[i].data_nasterii.zi<<"/"<<v[i].data_nasterii.luna<<"/"<<v[i].data_nasterii.an;
-        cout<<" "<<v[i].salariu;
+        cout<<" "<<v[i].minereuri;
         cout<<"\n";
     }
 }
 void stergere()
 {
-    cout<<"Nume:";cin>>num;
+    cout<<"Nume miner:";cin>>num;
     for(i=1; i<=n; i++)
         if(strcmp(num,v[i].nume)==0)
         {
@@ -53,11 +54,11 @@ void stergerepoz()
         v[poz]=v[i];
     n--;
 }
-void sortsalariu()
+void sortminereuri()
 {
     for(i=1; i<=n; i++)
         for(j=i+1; j<n; j++)
-            if(v[i].salariu>v[j].salariu)
+            if(v[i].minereuri>v[j].minereuri)
                 swap(v[i],v[j]);
 }
 void sortalf()
@@ -70,14 +71,15 @@ void sortalf()
 }
 void interfata()
 {
-    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~MENIU~~~~~~~~~~~~~~~~~~~~~~~~"<<'\n';
-    cout<<"1.Adaugare pompier."<<'\n';
-    cout<<"2.Stergere pompier dupa nume."<<'\n';
-    cout<<"3.Stergere pompier dupa o pozitie"<<'\n';
-    cout<<"4.Afisare pompier in ordinea crescatoare a salariilor"<<'\n';
-    cout<<"5.Afisare pompieri in ordine alfabetica."<<'\n';
+    cout<<"------------------------MENU------------------------"<<'\n';
+    cout<<"1.Adaugare miner."<<'\n';
+    cout<<"2.Stergere miner dupa nume."<<'\n';
+    cout<<"3.Stergere miner dupa o pozitie"<<'\n';
+    cout<<"4.Afisare mineri in ordinea crescatoare a minereurilor"<<'\n';
+    cout<<"5.Afisare mineri in ordine alfabetica."<<'\n';
     cout<<"6.Iesire."<<'\n';
-    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~MENIU~~~~~~~~~~~~~~~~~~~~~~~~"<<'\n';
+    cout<<"------------------------MENU------------------------"<<'\n';
+    cout<<"Intorduceti un numar: ";
 
 
 }
@@ -108,7 +110,7 @@ int main()
         }
         case 4:
         {
-            sortsalariu();
+            sortminereuri();
             afisare();
             break;
         }
